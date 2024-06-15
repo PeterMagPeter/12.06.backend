@@ -12,12 +12,6 @@ import { readFile } from "fs/promises";
 import https from "https";
 import { startWebSocketConnection } from "./websockets";
 
-const app1 = express();
-app1.use(cors({
-  origin: '*' // Replace with your actual URL
-}));
-
-
 /** 
  * Init setup to connect to MongoDB
  * */ 
@@ -90,7 +84,7 @@ const client = new MongoClient(uri, {
         
       } finally {
         // Ensures that the client will close when you finish/error
-        await client.close();
+        // await client.close();
       }
         const expressServer = app.listen(process.env.SERVER_PORT || 3001, () => {
     console.log('Server Started PORT ==> ', process.env.SERVER_PORT || 3001);

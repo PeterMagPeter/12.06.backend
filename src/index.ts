@@ -81,7 +81,19 @@ const client = new MongoClient(uri, {
         
         // Send a ping to confirm a successful connection
         await client.db("BitBusters").command({ ping: 1 }).then(()=>{console.log("Pinged your deployment. You successfully connected to MongoDB!");});
-        
+
+        mongoose.connection.on('connected', () => {
+  console.log('Mongoose connected to DB');
+});
+
+mongoose.connection.on('error', (err) => {
+  console.error('Mongoose connection error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.log('Mongoose disconnected from DB');
+});
+
       } finally {
         // Ensures that the client will close when you finish/error
         // await client.close();

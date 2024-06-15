@@ -78,7 +78,7 @@ async function setup() {
       // Send a ping to confirm a successful connection
       await client.db("BitBusters").command({ ping: 1 }).then(() => { console.log("Pinged your deployment. You successfully connected to MongoDB!"); });
 
-      await mongoose.connect(mongodURI, {
+      await mongoose.connect(uri, {
         serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
         socketTimeoutMS: 45000, // Increase socket timeout to 45 seconds
       });

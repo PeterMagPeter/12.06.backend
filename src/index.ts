@@ -31,7 +31,6 @@ const mongoURI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PW
 // Mongoose connection setup
 const connectWithRetry = () => {
   mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
